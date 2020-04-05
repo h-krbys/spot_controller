@@ -2,9 +2,9 @@
 <package format="2">
 
   <!-- Package information -->
-  <name>spotmicroai_controllers</name>
+  <name>spot_description</name>
   <version>0.0.0</version>
-  <description>Controllers for SpotMicroAI</description>
+  <description>Model of SpotMicroAI</description>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
