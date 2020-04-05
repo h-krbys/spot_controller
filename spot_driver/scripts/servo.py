@@ -1,35 +1,25 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 
-#from __future__ import division
-#import time
-
+import rospy
+from std_msgs.msg import Float32MultiArray
 import Adafruit_PCA9685
 
-# Initialise the PCA9685 using desired address and/or bus:
-pwm = Adafruit_PCA9685.PCA9685(address = 0x40, busnum = 1)
+class Servo:
 
-# Number of servo
-servo_num = 12
+    def __init__(self):
+        # Subscribe 12 joint angles [rad]
+        self.sub = rospy.Subscriber("joint", Float32MultiArray, self.jointCallback)
+        # Initialise the PCA9685 using desired address & bus
+        self.driver = Adafruit_PCA9685.PCA9685(address = 0x40, busnum = 1)
+        #
+        self.driver.set_pwm_freq(60)
 
-# Configure min and max servo pulse lengths
-servo_min    = 150 # min. pulse length
-servo_max    = 600 # max. pulse length
-servo_offset = 50
+    def jointCallback(self, msg):
+        for i in range(12):
+            print('Moving servo on channel: ', i, ', angle: ', msg.data[i])
+            self.driver.set_pwm(i, 0, msg.data[i])
 
-# Set frequency to 60[Hz]
-pwm.set_pwm_freq(60)
-
-while True:
-    # move servo on each channel
-    for i in range(servo_num - 1):
-        print('Moving servo on channel: ', i)
-        pwm.set_pwm(i, 0, servo_min + servo_offset)
-        time.sleep(1)
-        pwm.set_pwm(i, 0, servo_max - servo_offset)
-        time.sleep(1)
-    # move servo on all channel
-    for i in range(servo_num - 1):
-        print('Moving servo on channel: 0 - 12')
-        pwm.set_pwm(i, 0, servo_min + servo_offset)
-        time.sleep(1)
+if __name__ == '__main__':
+    rospy.init_node('servo')
+    Servo()
+    rospy.spin()
