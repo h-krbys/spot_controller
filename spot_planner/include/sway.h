@@ -25,6 +25,8 @@ private:
   // time
   const double dt;      // timestep
   double       elapsed; //elapsed time
+
+  double theta;
 };
 
 #endif // __SPOT_PLANNER_SWAY_H__

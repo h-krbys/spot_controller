@@ -13,6 +13,8 @@ Sway::Sway() : dt(0.01) {
 
   elapsed = 0.0;
   phase   = 0;
+
+  theta = 0.0;
 }
 
 Sway::~Sway() {
@@ -21,12 +23,27 @@ Sway::~Sway() {
 void Sway::timerCallback(const ros::TimerEvent &) {
   switch (phase) {
   case 0:
-    joints.data[0] += 0.005;
-    printf("joints.data[0] %lf\n", joints.data[0]);
+    theta += 0.001;
+    if(theta > 1) {
+      phase = 1;
+    }
     break;
   case 1:
+    theta -= 0.001;
+    if(theta < 0) {
+      phase = 0;
+    }
     break;
   }
+
+  joints.data[1]  = -theta;
+  joints.data[2]  = 2 * theta;
+  joints.data[4]  = -theta;
+  joints.data[5]  = 2 * theta;
+  joints.data[7]  = -theta;
+  joints.data[8]  = 2 * theta;
+  joints.data[10] = -theta;
+  joints.data[11] = 2 * theta;
 
   elapsed += dt;
 
