@@ -2,6 +2,7 @@
 
 import rospy
 from std_msgs.msg import Float32MultiArray
+from sensor_msgs.msg import JointState
 import Adafruit_PCA9685
 
 class Servo:
@@ -10,14 +11,17 @@ class Servo:
         # Subscribe 12 joint angles [rad]
         self.sub = rospy.Subscriber("joint", Float32MultiArray, self.jointCallback)
         # Initialise the PCA9685 using desired address & bus
-        self.driver = Adafruit_PCA9685.PCA9685(address = 0x40, busnum = 1)
+        # self.driver = Adafruit_PCA9685.PCA9685(address = 0x40, busnum = 1)
         #
-        self.driver.set_pwm_freq(60)
+        # self.driver.set_pwm_freq(60)
+
+        # Publish joint angles to RViz
+        self.pub = rospy.Publisher('joint_states_source', JointState, queue_size=10)
 
     def jointCallback(self, msg):
         for i in range(12):
             print('Moving servo on channel: ', i, ', angle: ', msg.data[i])
-            self.driver.set_pwm(i, 0, msg.data[i])
+            # self.driver.set_pwm(i, 0, msg.data[i])
 
 if __name__ == '__main__':
     rospy.init_node('servo')
