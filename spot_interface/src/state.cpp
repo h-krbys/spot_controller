@@ -30,7 +30,7 @@ State::~State() {
 
 void State::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
   for (int i = 0; i < 12; i++) {
-    jointState.position[i] = joint.data[i];
+    jointState.position[i] = joint->data[i];
   }
 
   pubJointState.publish(jointState);
