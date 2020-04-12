@@ -2,7 +2,6 @@
 
 import rospy
 from std_msgs.msg import Float32MultiArray
-from sensor_msgs.msg import JointState
 import Adafruit_PCA9685
 
 class Servo:
@@ -17,6 +16,19 @@ class Servo:
 
         # Publish joint angles to RViz
         self.pub = rospy.Publisher('joint_states_source', JointState, queue_size=10)
+
+        # self.joints = JointState()
+        # self.joints.header = Header()
+        # self.joints.header.stamp = rospy.Time.now()
+        # self.joints.name = [
+        # front_left_shoulder, front_left_leg, front_left_foot, front_right_shoulder, front_right_leg, front_right_foot,
+        # rear_left_shoulder, rear_left_leg, rear_left_foot, rear_right_shoulder, rear_right_leg, rear_right_foot]
+        # self.joints.position = [3, 0.5418, -1.7297, -3.1017]
+        # self.joints.velocity = []
+        # self.joints.effort = []
+        # pub.publish(self.joints)
+
+        joints = rospy.get_param('/joint')
 
     def jointCallback(self, msg):
         for i in range(12):

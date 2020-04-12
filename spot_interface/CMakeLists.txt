@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(spot_planner)
+project(spot_interface)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -68,4 +68,4 @@ function(add_controller controller)
   target_link_libraries(${controller} ${catkin_LIBRARIES})
 endfunction()
 
-add_controller(sway)
+add_controller(state)
