@@ -5,7 +5,7 @@
     # axis:        [ 0, 0, 1 ]
     # range:       [ 0, 0 ]
 
-joints:
+joint_config:
   -
     name:  front_left_shoulder
     id:    0
