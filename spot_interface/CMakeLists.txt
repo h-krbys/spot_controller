@@ -68,4 +68,4 @@ function(add_controller controller)
   target_link_libraries(${controller} ${catkin_LIBRARIES})
 endfunction()
 
-add_controller(state)
+add_controller(simulation)

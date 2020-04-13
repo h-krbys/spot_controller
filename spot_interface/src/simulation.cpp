@@ -1,9 +1,9 @@
-#include "state.h"
+#include "simulation.h"
 
-State::State() {
+Simulation::Simulation() {
   pubJointState = nh.advertise<sensor_msgs::JointState>("joint_states_source", 1);
 
-  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 10, &State::jointCallback, this);
+  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 10, &Simulation::jointCallback, this);
 
   jointState.header.stamp = ros::Time::now();
   jointState.name.resize(12);
@@ -25,10 +25,10 @@ State::State() {
   }
 }
 
-State::~State() {
+Simulation::~Simulation() {
 }
 
-void State::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
+void Simulation::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
   for (int i = 0; i < 12; i++) {
     jointState.position[i] = joint->data[i];
   }
@@ -37,7 +37,7 @@ void State::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
 }
 
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "state");
-  State state;
+  ros::init(argc, argv, "simulation");
+  Simulation simulation;
   ros::spin();
 }
