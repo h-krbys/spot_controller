@@ -1,6 +1,7 @@
 #include "simulation.h"
 
 Simulation::Simulation() {
+  // publish joint angles to RViz
   pubJointState = nh.advertise<sensor_msgs::JointState>("joint_states_source", 1);
 
   subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 10, &Simulation::jointCallback, this);
