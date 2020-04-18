@@ -1,68 +1,49 @@
-    # name:        front_left_shoulder
-    # id:          0
-    # translation: [ 0, 0, 0 ]
-    # rotation:    [ 0, 0, 0 ]
-    # axis:        [ 0, 0, 1 ]
-    # range:       [ 0, 0 ]
-
-joint_config:
+limit:
   -
     name:  front_left_shoulder
     id:    0
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  front_left_leg
     id:    1
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  front_left_foot
     id:    2
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  front_right_shoulder
     id:    3
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  front_right_leg
     id:    4
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  front_right_foot
     id:    5
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_left_shoulder
     id:    6
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_left_leg
     id:    7
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_left_foot
     id:    8
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_right_shoulder
     id:    9
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_right_leg
     id:    10
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
   -
     name:  rear_right_foot
     id:    11
-    trans: [ 0, 0, 0 ]
     range: [ 0, 0 ]
