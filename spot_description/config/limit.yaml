@@ -2,48 +2,48 @@ limit:
   -
     name:  front_left_shoulder
     id:    0
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ] # [ lower limit, upper limit ] [rad]
   -
     name:  front_left_leg
     id:    1
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  front_left_foot
     id:    2
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  front_right_shoulder
     id:    3
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  front_right_leg
     id:    4
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  front_right_foot
     id:    5
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_left_shoulder
     id:    6
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_left_leg
     id:    7
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_left_foot
     id:    8
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_right_shoulder
     id:    9
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_right_leg
     id:    10
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
   -
     name:  rear_right_foot
     id:    11
-    range: [ 0, 0 ]
+    range: [ -1.5708, 1.5708 ]
