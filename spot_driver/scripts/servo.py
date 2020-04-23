@@ -15,8 +15,12 @@ class Servo:
         self.driver.set_pwm_freq(60)
 
     def jointCallback(self, msg):
+        self.theta = 450 * msg.data[2] / 3.14159
+        self.count = int(196+self.theta)
+        print('theta',self.theta)
+        print('count',self.count)
         for i in range(12):
-            self.driver.set_pwm(i, 0, msg.data[i])
+            self.driver.set_pwm(i, 0, self.count)
 
 if __name__ == '__main__':
     rospy.init_node('servo')
