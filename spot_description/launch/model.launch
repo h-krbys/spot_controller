@@ -15,4 +15,6 @@
 
   <rosparam param="source_list">["joint_states_source"]</rosparam>
 
+  <node name="simulation" pkg="spot_interface" type="simulation" />
+
 </launch>

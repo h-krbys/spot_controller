@@ -10,16 +10,16 @@ Simulation::Simulation() {
   jointState.name.resize(12);
   jointState.position.resize(12);
 
-  XmlRpc::XmlRpcValue joint_config;
-  nh.getParam("joint_config", joint_config);
-  for (int32_t i = 0; i < joint_config.size(); i++) {
+  XmlRpc::XmlRpcValue limit;
+  nh.getParam("limit", limit);
+  for (int32_t i = 0; i < limit.size(); i++) {
     int         id   = 0;
     std::string name = "";
-    if(joint_config[i]["id"].getType() == XmlRpc::XmlRpcValue::TypeInt) {
-      id = static_cast<int>( joint_config[i]["id"] );
+    if(limit[i]["id"].getType() == XmlRpc::XmlRpcValue::TypeInt) {
+      id = static_cast<int>( limit[i]["id"] );
     }
-    if(joint_config[i]["name"].getType() == XmlRpc::XmlRpcValue::TypeString) {
-      name = static_cast<std::string>( joint_config[i]["name"] );
+    if(limit[i]["name"].getType() == XmlRpc::XmlRpcValue::TypeString) {
+      name = static_cast<std::string>( limit[i]["name"] );
     }
     jointState.name[id]     = name;
     jointState.position[id] = 0.0;
