@@ -2,7 +2,7 @@
 
   <rosparam command="load" file="$(find spot_description)/config/limit.yaml" />
 
-  <node name="servo" pkg="spot_driver" type="servo" />
+  <node name="servo" pkg="spot_driver" type="servo.py" />
 
   <include file="$(find spot_planner)/launch/joycon.launch"></include>
 

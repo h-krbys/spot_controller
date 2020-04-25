@@ -27,10 +27,12 @@ $ sudo apt install ros-melodic-ifopt
 $ sudo apt install ros-melodic-xpp
 ```
 
+sudo apt-get install ros-melodic-joy
+
 ## Joycon
 
 ### Joystick Name
-Sony DualShock3 
+Sony DualShock3
 
 ### Intstallation
 
@@ -38,6 +40,7 @@ site: https://askubuntu.com/questions/913599/how-to-connect-dualshock-3-controll
 
 ```
 $ sudo apt-get install dialog build-essential pyqt4-dev-tools libusb-dev libbluetooth-dev python-dbus -y
+$ cd Downloads
 $ wget https://github.com/RetroPie/sixad/archive/master.zip -O sixad-master.zip
 $ unzip sixad-master.zip
 $ cd sixad-master
