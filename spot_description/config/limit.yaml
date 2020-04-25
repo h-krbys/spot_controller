@@ -8,12 +8,12 @@ limit:
     name:  front_left_leg
     id:    1
     range: [ -2.62, +0.52 ]
-    zero:  375
+    zero:  510
   -
     name:  front_left_foot
     id:    2
     range: [ -0.10, +2.59 ]
-    zero:  375
+    zero:  193
   -
     name:  front_right_shoulder
     id:    3
