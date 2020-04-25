@@ -14,13 +14,12 @@ class Servo:
         self.driver = Adafruit_PCA9685.PCA9685(address = 0x40, busnum = 1)
         self.driver.set_pwm_freq(60)
 
+        # Load joint config from parameter server
+        self.limit = rospy.get_param('limit')
+
     def jointCallback(self, msg):
-        self.theta = 450 * msg.data[2] / 3.14159
-        self.count = int(196+self.theta)
-        print('theta',self.theta)
-        print('count',self.count)
         for i in range(12):
-            self.driver.set_pwm(i, 0, self.count)
+            self.driver.set_pwm(i, 0, limit[i]['zero'] + 450 * msg.data[i] / 3.14159)
 
 if __name__ == '__main__':
     rospy.init_node('servo')

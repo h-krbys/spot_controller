@@ -25,6 +25,7 @@ private:
   ros::Subscriber subJoy;
 
   std_msgs::Float32MultiArray joints;
+  XmlRpc::XmlRpcValue         limit;
 };
 
 #endif // __SPOT_PLANNER_JOYCON_H__
