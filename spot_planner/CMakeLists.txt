@@ -68,4 +68,5 @@ function(add_controller controller)
   target_link_libraries(${controller} ${catkin_LIBRARIES})
 endfunction()
 
+add_controller(joycon)
 add_controller(sway)

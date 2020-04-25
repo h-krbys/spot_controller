@@ -1,0 +1,11 @@
+<launch>
+
+  <!-- Joy -->
+  <node name="joy_node" pkg="joy" type="joy_node">
+    <param name="autorepeat_rate" value="100"/>
+  </node>
+
+  <!-- Control Spot by joycon-->
+  <node name="joycon" pkg="spot_planner" type="joycon"/>
+
+</launch>
