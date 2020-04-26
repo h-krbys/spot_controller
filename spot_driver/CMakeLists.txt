@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(spot_driver)
 
+set(I2C_DIR     "" CACHE PATH "root directory of I2C")
+set(PCA9685_DIR "" CACHE PATH "root directory of PCA9685")
+
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
@@ -27,8 +30,10 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
+  ${I2C_DIR}/src
+  ${PCA9685_DIR}/src
 )
 
 ## Declare a C++ library
@@ -60,3 +65,14 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+# add controller
+function(add_controller controller)
+  add_executable(${controller} src/${controller}.cpp)
+  add_dependencies(${controller} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+  target_link_libraries(${controller} ${catkin_LIBRARIES})
+endfunction()
+
+add_executable(servo src/servo.cpp ${I2C_DIR}/src/I2C.cpp ${PCA9685_DIR}/src/PCA9685.cpp)
+add_dependencies(servo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(servo ${catkin_LIBRARIES})

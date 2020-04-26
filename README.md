@@ -29,6 +29,20 @@ $ sudo apt install ros-melodic-xpp
 
 sudo apt-get install ros-melodic-joy
 
+### clone
+
+```
+$ cd Downloads
+$ git clone https://github.com/TeraHz/I2C
+$ git clone https://github.com/TeraHz/PCA9685
+```
+
+### Catkin Config
+
+```
+$ catkin config --cmake-args -DI2C_DIR=~/Downloads/I2C -DPCA9685_DIR=~/Downloads/PCA9685
+```
+
 ## Joycon
 
 ### Joystick Name
