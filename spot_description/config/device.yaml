@@ -1,0 +1,6 @@
+pca9685:
+  bus: 1
+  address: 0x40
+  frequency: 60 # [Hz]
+  resolution: 450
+

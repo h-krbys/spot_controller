@@ -4,7 +4,7 @@ Servo::Servo() {
   // publish joint angles to RViz
   subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 1, &Servo::jointCallback, this);
 
-  // pca9685
+  // pca9685 (bus, address)
   driver = new PCA9685(1, 0x40);
   driver->setPWMFreq(60);
 
