@@ -18,14 +18,9 @@ class Servo:
         self.limit = rospy.get_param('limit')
 
     def jointCallback(self, msg):
-        print(msg.data[0])
-        #self.driver.set_pwm(0, 0, int(self.limit[0]['zero']) + int(450 * msg.data[0] / 3.14159))
-        #self.driver.set_pwm(1, 0, int(self.limit[1]['zero']) + int(450 * msg.data[1] / 3.14159))
-        #self.driver.set_pwm(2, 0, int(self.limit[2]['zero']) + int(450 * msg.data[2] / 3.14159))
-        #self.driver.set_pwm(3, 0, int(self.limit[3]['zero']) + int(450 * msg.data[3] / 3.14159))
+        # print(msg.data[0])
         for i in range(12):
             self.driver.set_pwm(i, 0, int(self.limit[i]['zero']) + int(450 * msg.data[i] / 3.14159))
-            #self.driver.set_pwm(i, 0, int(self.limit[i]['zero']) + 450) )
 
 if __name__ == '__main__':
     rospy.init_node('servo')
