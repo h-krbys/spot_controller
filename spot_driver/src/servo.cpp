@@ -1,14 +1,14 @@
 #include "servo.h"
 
 Servo::Servo() {
-  // publish joint angles to RViz
+  // Subscribe joint angles
   subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 1, &Servo::jointCallback, this);
 
-  // pca9685 (bus, address)
+  // Setup pca9685 (bus, address)
   driver = new PCA9685(1, 0x40);
   driver->setPWMFreq(60);
 
-  // get joint limit (upper/lower boundary)
+  // Get joint angle limitations (upper & lower boundary)
   nh.getParam("limit", limit);
 }
 
