@@ -1,6 +1,6 @@
 <launch>
 
-  <rosparam command="load" file="$(find spot_description)/config/limit.yaml" />
+  <rosparam command="load" file="$(find spot_description)/config/joint.yaml" />
 
   <node name="servo" pkg="spot_driver" type="servo" output="screen"/>
 

@@ -10,16 +10,15 @@ public:
   Servo();
   ~Servo();
 
-  void jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joy);
+  void jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint);
 
 private:
   ros::NodeHandle nh;
 
   ros::Subscriber subJoint;
 
-  PCA9685                    *driver;
-  std_msgs::Float32MultiArray joints;
-  XmlRpc::XmlRpcValue         limit;
+  PCA9685            *driver;
+  XmlRpc::XmlRpcValue joint;
 };
 
 #endif // __SPOT_DRIVER_SERVO_H__

@@ -2,7 +2,7 @@
 
 Joycon::Joycon() {
   // publish joint angles to RViz
-  pubJoint = nh.advertise<std_msgs::Float32MultiArray>("joint", 1);
+  pubJoint = nh.advertise<std_msgs::Float32MultiArray>("angle", 1);
 
   subJoy = nh.subscribe<sensor_msgs::Joy>("joy", 10, &Joycon::joyCallback, this);
 
@@ -13,10 +13,10 @@ Joycon::Joycon() {
   }
 
   // get joint limit (upper/lower boundary)
-  nh.getParam("limit", limit);
+  nh.getParam("joint", joint);
 
-  printf("min %lf\n", static_cast<double>( limit[0]["range"][0] ) );
-  printf("max %lf\n", static_cast<double>( limit[0]["range"][1] ) );
+  printf("min %lf\n", static_cast<double>( joint[0]["range"][0] ) );
+  printf("max %lf\n", static_cast<double>( joint[0]["range"][1] ) );
 }
 
 Joycon::~Joycon() {
@@ -30,12 +30,15 @@ void Joycon::joyCallback(const sensor_msgs::Joy::ConstPtr &joy) {
     joints.data[3 * i + 2] += 0.01 * direction * joy->buttons[JOINT3_BUTTON];
   }
 
+  // joint range constraint
   for(int i = 0; i < 12; i++) {
-    if(joints.data[i] < static_cast<double>( limit[i]["range"][0] ) ) {
-      joints.data[i] = static_cast<double>( limit[i]["range"][0] );
+    // lower boundary
+    if(joints.data[i] < static_cast<double>( joint[i]["range"][0] ) ) {
+      joints.data[i] = static_cast<double>( joint[i]["range"][0] );
     }
-    if(joints.data[i] > static_cast<double>( limit[i]["range"][1] ) ) {
-      joints.data[i] = static_cast<double>( limit[i]["range"][1] );
+    // upper boundary
+    if(joints.data[i] > static_cast<double>( joint[i]["range"][1] ) ) {
+      joints.data[i] = static_cast<double>( joint[i]["range"][1] );
     }
   }
 

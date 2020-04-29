@@ -2,14 +2,14 @@
 
 Servo::Servo() {
   // Subscribe joint angles
-  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 1, &Servo::jointCallback, this);
+  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("angle", 1, &Servo::jointCallback, this);
 
   // Setup pca9685 (bus, address)
   driver = new PCA9685(1, 0x40);
   driver->setPWMFreq(60);
 
   // Get joint angle limitations (upper & lower boundary)
-  nh.getParam("limit", limit);
+  nh.getParam("joint", joint);
 }
 
 Servo::~Servo() {
@@ -19,7 +19,7 @@ Servo::~Servo() {
 void Servo::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
   for(int i = 0; i < 12; i++) {
     // channel id = joint id + 1
-    driver->setPWM(i + 1, 0, static_cast<int>( limit[i]["center"] ) + int(450 * joint->data[i] / 3.14159) );
+    driver->setPWM(i + 1, 0, static_cast<int>( joint[i]["center"] ) + int(450 * joint->data[i] / 3.14159) );
   }
 }
 

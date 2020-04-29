@@ -1,7 +1,7 @@
 #include "sway.h"
 
 Sway::Sway() : dt(0.01) {
-  pubJoint = nh.advertise<std_msgs::Float32MultiArray>("joint", 1);
+  pubJoint = nh.advertise<std_msgs::Float32MultiArray>("angle", 1);
 
   timer = nh.createTimer(ros::Duration(dt), &Sway::timerCallback, this);
 

@@ -4,22 +4,22 @@ Simulation::Simulation() {
   // publish joint angles to RViz
   pubJointState = nh.advertise<sensor_msgs::JointState>("joint_states_source", 1);
 
-  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("joint", 10, &Simulation::jointCallback, this);
+  subJoint = nh.subscribe<std_msgs::Float32MultiArray>("angle", 10, &Simulation::jointCallback, this);
 
   jointState.header.stamp = ros::Time::now();
   jointState.name.resize(12);
   jointState.position.resize(12);
 
-  XmlRpc::XmlRpcValue limit;
-  nh.getParam("limit", limit);
-  for (int32_t i = 0; i < limit.size(); i++) {
+  XmlRpc::XmlRpcValue joint;
+  nh.getParam("joint", joint);
+  for (int32_t i = 0; i < joint.size(); i++) {
     int         id   = 0;
     std::string name = "";
-    if(limit[i]["id"].getType() == XmlRpc::XmlRpcValue::TypeInt) {
-      id = static_cast<int>( limit[i]["id"] );
+    if(joint[i]["id"].getType() == XmlRpc::XmlRpcValue::TypeInt) {
+      id = static_cast<int>( joint[i]["id"] );
     }
-    if(limit[i]["name"].getType() == XmlRpc::XmlRpcValue::TypeString) {
-      name = static_cast<std::string>( limit[i]["name"] );
+    if(joint[i]["name"].getType() == XmlRpc::XmlRpcValue::TypeString) {
+      name = static_cast<std::string>( joint[i]["name"] );
     }
     jointState.name[id]     = name;
     jointState.position[id] = 0.0;
