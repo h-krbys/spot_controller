@@ -19,7 +19,7 @@ Servo::~Servo() {
 void Servo::jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint) {
   for(int i = 0; i < 12; i++) {
     // channel id = joint id + 1
-    driver->setPWM(i + 1, 0, static_cast<int>( joint[i]["center"] ) + int(450 * joint->data[i] / 3.14159) );
+    driver->setPWM(i + 1, 0, static_cast<int>( this->joint[i]["center"] ) + int(450 * joint->data[i] / 3.14159) );
   }
 }
 
