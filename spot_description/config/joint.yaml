@@ -3,59 +3,59 @@ joint:
     id:     0
     name:   front_left_shoulder
     range:  [ -0.55, +0.55 ] # [ lower limit, upper limit ] [rad]
-    center: 375
+    center: 395
   -
     id:     1
     name:   front_left_leg
     range:  [ -2.62, +0.52 ]
-    center: 510
+    center: 240
   -
     id:     2
     name:   front_left_foot
     range:  [ -0.10, +2.59 ]
-    center: 196
+    center: 540
   -
     id:     3
     name:   front_right_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 395
   -
     id:     4
     name:   front_right_leg
     range:  [ -2.62, +0.52 ]
-    center: 510
+    center: 240
   -
     id:     5
     name:   front_right_foot
     range:  [ -0.10, +2.59 ]
-    center: 196
+    center: 540
   -
     id:     6
     name:   rear_left_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 395
   -
     id:     7
     name:   rear_left_leg
     range:  [ -2.62, +0.52 ]
-    center: 510
+    center: 240
   -
     id:     8
     name:   rear_left_foot
     range:  [ -0.10, +2.59 ]
-    center: 196
+    center: 540
   -
     id:     9
     name:   rear_right_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 395
   -
     id:     10
     name:   rear_right_leg
     range:  [ -2.62, +0.52 ]
-    center: 510
+    center: 240
   -
     id:     11
     name:   rear_right_foot
     range:  [ -0.10, +2.59 ]
-    center: 196
+    center: 540
