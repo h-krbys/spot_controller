@@ -39,7 +39,7 @@ joint:
     id:     6
     name:   rear_left_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 350
     direction: +1
   -
     id:     7
@@ -57,13 +57,13 @@ joint:
     id:     9
     name:   rear_right_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 400
     direction: +1
   -
     id:     10
     name:   rear_right_leg
     range:  [ -2.62, +0.52 ]
-    center: 510
+    center: 525
     direction: +1
   -
     id:     11
