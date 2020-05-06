@@ -10,13 +10,13 @@ joint:
     name:   front_left_leg
     range:  [ -2.62, +0.52 ]
     center: 230
-    direction: +1
+    direction: -1
   -
     id:     2
     name:   front_left_foot
     range:  [ -0.10, +2.59 ]
     center: 540
-    direction: +1
+    direction: -1
   -
     id:     3
     name:   front_right_shoulder
@@ -46,13 +46,13 @@ joint:
     name:   rear_left_leg
     range:  [ -2.62, +0.52 ]
     center: 230
-    direction: +1
+    direction: -1
   -
     id:     8
     name:   rear_left_foot
     range:  [ -0.10, +2.59 ]
     center: 540
-    direction: +1
+    direction: -1
   -
     id:     9
     name:   rear_right_shoulder
