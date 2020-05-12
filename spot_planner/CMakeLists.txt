@@ -70,3 +70,4 @@ endfunction()
 
 add_controller(joycon)
 add_controller(sway)
+add_controller(stand)
