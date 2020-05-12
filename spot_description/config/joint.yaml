@@ -3,7 +3,7 @@ joint:
     id:     0
     name:   front_left_shoulder
     range:  [ -0.55, +0.55 ] # [ lower limit, upper limit ] [rad]
-    center: 375
+    center: 365
     direction: +1
   -
     id:     1
@@ -21,7 +21,7 @@ joint:
     id:     3
     name:   front_right_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 375
+    center: 385
     direction: +1
   -
     id:     4
@@ -39,13 +39,13 @@ joint:
     id:     6
     name:   rear_left_shoulder
     range:  [ -0.55, +0.55 ]
-    center: 350
+    center: 320
     direction: +1
   -
     id:     7
     name:   rear_left_leg
     range:  [ -2.62, +0.52 ]
-    center: 230
+    center: 240
     direction: -1
   -
     id:     8

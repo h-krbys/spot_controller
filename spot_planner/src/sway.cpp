@@ -23,8 +23,8 @@ Sway::~Sway() {
 void Sway::timerCallback(const ros::TimerEvent &) {
   switch (phase) {
   case 0:
-    theta += 0.003;
-    if(theta > 1) {
+    theta += 0.002;
+    if(theta > 0.8) {
       phase = 1;
       elapsed = 0;
     }
@@ -35,7 +35,7 @@ void Sway::timerCallback(const ros::TimerEvent &) {
     }
     break;
   case 2:
-    theta -= 0.003;
+    theta -= 0.002;
     if(theta < 0) {
       phase = 3;
       elapsed = 0;
