@@ -63,7 +63,7 @@ joint:
     id:     10
     name:   rear_right_leg
     range:  [ -2.62, +0.52 ]
-    center: 525
+    center: 560
     direction: +1
   -
     id:     11
