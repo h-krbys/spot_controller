@@ -36,37 +36,37 @@ joint:
     center: 196
     direction: +1
   -
-    id:     0
+    id:     3
     name:   rear_left_shoulder
     range:  [ -0.55, +0.55 ]
     center: 320
     direction: +1
   -
-    id:     1
+    id:     4
     name:   rear_left_leg
     range:  [ -2.62, +0.52 ]
     center: 240
     direction: -1
   -
-    id:     2
+    id:     5
     name:   rear_left_foot
     range:  [ -0.10, +2.59 ]
     center: 540
     direction: -1
   -
-    id:     3
+    id:     0
     name:   rear_right_shoulder
     range:  [ -0.55, +0.55 ]
     center: 400
     direction: +1
   -
-    id:     4
+    id:     1
     name:   rear_right_leg
     range:  [ -2.62, +0.52 ]
     center: 560
     direction: +1
   -
-    id:     5
+    id:     2
     name:   rear_right_foot
     range:  [ -0.10, +2.59 ]
     center: 196
