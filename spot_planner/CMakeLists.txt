@@ -69,5 +69,6 @@ function(add_controller controller)
 endfunction()
 
 add_controller(joycon)
-add_controller(sway)
 add_controller(stand)
+add_controller(sway)
+add_controller(paw)
