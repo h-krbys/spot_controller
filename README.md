@@ -15,17 +15,27 @@ This package depends on following packages.
 
 | Package | Detail |
 | --- | --- |
+| champ |Open source development framework for building new quadrupedal robots and developing new control algorithms.|
+<!--
 | towr  |Light-weight and extensible C++ library for trajectory optimization for legged robots.|
 | ifopt |Eigen-based, light-weight C++ Interface to NLP Solvers (Ipopt, Snopt).|
 | xpp   |Visualization of legged robots, forces, support areas, ZMP, CoM etc. in ROS rviz.|
+-->
+
 
 Please install necessary packages.
 
+```
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/chvmp/champ
+```
+<!--
 ```
 $ sudo apt install ros-melodic-towr-ros
 $ sudo apt install ros-melodic-ifopt
 $ sudo apt install ros-melodic-xpp
 ```
+-->
 
 sudo apt-get install ros-melodic-joy
 
