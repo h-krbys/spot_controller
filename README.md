@@ -26,8 +26,13 @@ This package depends on following packages.
 Please install necessary packages.
 
 ```
+$ sudo apt install -y python-rosdep
+
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/chvmp/champ
+$ git clone https://github.com/chvmp/champ_teleop
+$ cd ..
+$ rosdep install --from-paths src --ignore-src -r -y
 ```
 <!--
 ```
