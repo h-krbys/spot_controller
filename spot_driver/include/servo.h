@@ -11,14 +11,18 @@ public:
   ~Servo();
 
   void jointCallback(const std_msgs::Float32MultiArray::ConstPtr &joint);
+  void timerCallback(const ros::TimerEvent &event);
 
 private:
   ros::NodeHandle nh;
 
   ros::Subscriber subJoint;
 
+  ros::Timer timer;
+
   PCA9685            *driver;
   XmlRpc::XmlRpcValue joint;
+  float               theta[12];
 };
 
 #endif // __SPOT_DRIVER_SERVO_H__
